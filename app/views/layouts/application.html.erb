@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beauty Wan</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/72c990a6f7.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <%= link_to root_path, class: "text-light navbar-brand" do %>
+            Beauty Wan
+          <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "Beauty Wanについて", about_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'マイページ', user_path(current_user.id) %>
+                </li>
+                <li class="nav-item">ブックマーク</li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "Beauty Wanについて", about_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "新規登録", new_user_registration_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログイン", new_user_session_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="mb-auto">
+      <p class="notice"><%= notice %></p>
+      <%= yield %>
+    </main>
+    <footer class="pt-5 pb-4">
+      <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Wan.inc</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
