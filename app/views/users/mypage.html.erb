@@ -1,2 +1,23 @@
-<h1>Users#mypage</h1>
-<p>Find me in app/views/users/mypage.html.erb</p>
+<h2>User info</h2>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <th>名前</th>
+      <td><span><%= @user.name %></span><td>
+    </tr>
+    <tr>
+      <th>ニックネーム</th>
+      <td><span><%= @user.nickname %></span><td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><span><%= @user.email %></span><td>
+    </tr>
+  </tbody>
+</table>
+<ul>
+  <%= link_to "ユーザー編集", edit_user_path %>
+</ul>
+<ul>
+  <%= link_to "退会" %>
+</ul>
