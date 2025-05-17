@@ -26,6 +26,9 @@
         <div class="form-group">
           <%= f.submit 'Update User', class:'btn btn-secondary' %>
         </div>
+        <ul>
+          <%= link_to "戻る", user_path(current_user.id) %>
+        </ul>
       <% end %>
     </div>
   </div>
