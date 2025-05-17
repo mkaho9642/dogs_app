@@ -27,7 +27,7 @@
                   <%= link_to "Beauty Wanについて", about_path %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'マイページ', user_path(current_user.id) %>
+                  <%= link_to 'マイページ', mypage_user_path(current_user.id) %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
