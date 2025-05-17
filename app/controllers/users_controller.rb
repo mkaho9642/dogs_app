@@ -20,9 +20,24 @@ class UsersController < ApplicationController
     render 'edit'
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: '登録情報を更新しました。'
+    else
+      render 'edit'
+    end
+  end
+
   def confirm
     @user = current_user
     render 'confirm'
+  end
+  
+  def quit
+    @user = current_user
+    @user.update(status: :inactive)
+    redirect_to root_path, notice: '退会しました。'
   end
 
   private

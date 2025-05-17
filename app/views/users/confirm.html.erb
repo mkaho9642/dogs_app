@@ -1,6 +1,9 @@
 <p>退会すると以下のことができなくなります</p>
 
-<p></p>
+<p>退会しますか？</p>
 <ul>
   <%= link_to "退会", users_quit_path %>
+</ul>
+<ul>
+  <%= link_to "戻る", user_path(current_user.id) %>
 </ul>
