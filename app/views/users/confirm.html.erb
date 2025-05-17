@@ -2,7 +2,7 @@
 
 <p>退会しますか？</p>
 <ul>
-  <%= link_to "退会", users_quit_path %>
+  <%= link_to "退会", users_quit_path, method: :patch %>
 </ul>
 <ul>
   <%= link_to "戻る", user_path(current_user.id) %>
