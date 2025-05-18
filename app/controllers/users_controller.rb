@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   
   def quit
     @user = current_user
-    @user.update(is_deleted: true)
+    @user.update(is_active: false)
     reset_session
     redirect_to root_path, notice: '退会しました。'
   end
