@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit]
+    resources :genres, only: [:index, :edit]
   end
 
   devise_for :users
