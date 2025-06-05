@@ -1,8 +1,25 @@
-<h3>全ユーザー一覧</h3>
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <%= user.name %> - <%= user.email %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <h3>全ユーザー一覧</h3>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>address</th>
+          <th>Status</th>
+          <th>edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
