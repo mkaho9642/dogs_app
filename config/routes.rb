@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :salons, only: [:index, :show, :edit]
     resources :users, only: [:index, :show, :edit]
-    resources :genres, only: [:index, :edit]
+    resources :genres, only: [:index, :edit, :create]
     resources :reviews, only: [:index, :edit]
   end
 
