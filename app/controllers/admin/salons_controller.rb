@@ -1,4 +1,5 @@
 class Admin::SalonsController < ApplicationController
+  layout 'admin'
   def new
   end
 
