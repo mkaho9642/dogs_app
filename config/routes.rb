@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :salons, only: [:index, :show, :edit]
-    resources :users, only: [:index, :show, :edit]
-    resources :genres, only: [:index, :edit, :create]
-    resources :reviews, only: [:index, :edit]
+    resources :salons, only: [:index, :show, :edit, :new, :create, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :genres, only: [:index, :edit, :create, :update, :destroy]
+    resources :reviews, only: [:show, :edit]
   end
 
   devise_for :users
