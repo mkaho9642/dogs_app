@@ -12,6 +12,8 @@ class Admin::SalonsController < ApplicationController
   end
 
   def index
+    @salons = Salon.all
+    @salon = Salon.new
   end
 
   def show

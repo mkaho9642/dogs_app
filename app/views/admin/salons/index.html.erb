@@ -1,6 +1,28 @@
 <div class="container">
   <div class="row">
-    <h3>サロン一覧</h3>
+    <h3>サロン</h3>
+    <%= link_to admin_salons_path do %>新規サロン登録<% end %>
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
+          <th>サロン名</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @salons.each do |salon| %>
+          <tr>
+            <td><%= salon.name %></td>
+            <td><%= image_tag salon.image, size: "200x200" %></td>
+            <td>
+              <%= link_to admin_salon_path(salon.id) do %>
+                show
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
