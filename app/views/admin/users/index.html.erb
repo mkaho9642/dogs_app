@@ -1,25 +1,27 @@
 <div class="container">
   <div class="row">
-    <h3>全ユーザー一覧</h3>
-    <table class="table table-hover table-inverse">
-      <thead>
-        <tr>
-          <th>name</th>
-          <th>address</th>
-          <th>Status</th>
-          <th>edit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |user| %>
+    <div class="col">
+      <h3>全ユーザー一覧</h3>
+      <table class="table table-hover table-inverse">
+        <thead>
           <tr>
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
-            <td></td>
-            <td></td>
+            <th>ID</th>
+            <th>名前</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= link_to user.name, admin_user_path(user) %></td>
+              <td><%= user.email %></td>
+              <td><%= user.is_active %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
