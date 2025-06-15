@@ -2,10 +2,19 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h3>新規登録</h3>
-      <%= form_with model: @salon, method: :patch do |f| %>
-        <label>サロン名</label>
-        <div class="form-group">
-          <%= f.text_field :name, class: "form-control book_title" %>
+      <%= form_with model: [:admin, @salon], local: true do |f| %>
+        <div class="form-group row">
+          <%= f.label :image, 'サロン画像', class: 'col-sm-3 col-form-label' %>
+          <div class="col-sm-9">
+            <%= f.file_field :image, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :name, 'サロン名', class: 'col-sm-3 col-form-label' %>
+          <div class="col-sm-9">
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
         </div>
 
         <div class="form-group row">
@@ -15,16 +24,17 @@
           </div>
         </div>
 
-        <label>画像</label>
-        <%= f.file_field :image, accept: "image/*" %>
-
-        <label>サロン説明</label>
-        <div class="form-group">
-          <%= f.text_area :introduction, class: "form-control book_body" %>
+        <div class="form-group row">
+          <%= f.label :introduction, 'サロン情報', class: 'col-sm-3 col-form-label' %>
+          <div class="col-sm-9">
+            <%= f.text_area :introduction, class: 'form-control' %>
+          </div>
         </div>
         
-        <div>
-          <%= f.submit '登録', class: 'btn btn-success', method: :post %>
+        <div class="form-group row">
+          <div class="col-sm-9 offset-sm-3">
+            <%= f.submit '新規投稿', class: 'btn btn-success text-white' %>
+          </div>
         </div>
       <% end %>
     </div>
